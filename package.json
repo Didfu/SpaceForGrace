@@ -8,6 +8,9 @@
       "start": "next start",
       "lint": "next lint"
     },
+    "overrides": {
+      "date-fns": "4.1.0"
+    },
     "dependencies": {
       "@hookform/resolvers": "^3.9.1",
       "@radix-ui/react-accordion": "^1.2.2",
