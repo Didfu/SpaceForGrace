@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { CalendarIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -11,42 +10,58 @@ interface BlogPostProps {
     categories?: string[];
     coverImage?: string;
     excerpt?: string;
-    author?: {
-      name: string;
-      avatar: string;
-    };
     date?: string;
   };
 }
 
 export function BlogPost({ post }: BlogPostProps) {
   const renderBlock = (block) => {
+    if (!block) return null; // Ensure block exists before rendering
+  
+    const renderText = (richTextArray) =>
+      richTextArray.map((textObj, index) => {
+        let textElement = textObj.plain_text;
+  
+        if (textObj.annotations.bold) textElement = <strong key={index}>{textElement}</strong>;
+        if (textObj.annotations.italic) textElement = <em key={index}>{textElement}</em>;
+        if (textObj.annotations.underline) textElement = <u key={index}>{textElement}</u>;
+        if (textObj.annotations.strikethrough) textElement = <s key={index}>{textElement}</s>;
+  
+        return <span key={index}>{textElement} </span>;
+      });
+  
     switch (block.type) {
       case 'paragraph':
-        return <p key={block.id}>{block.paragraph.text[0]?.plain_text}</p>;
+        return <p key={block.id} className="mb-4">{renderText(block.paragraph?.rich_text || [])}</p>;
+  
       case 'heading_2':
-        return <h2 key={block.id}>{block.heading_2.text[0]?.plain_text}</h2>;
+        return <h2 key={block.id} className="text-2xl font-bold mt-6 mb-4">{renderText(block.heading_2?.rich_text || [])}</h2>;
+  
       case 'heading_3':
-        return <h3 key={block.id}>{block.heading_3.text[0]?.plain_text}</h3>;
+        return <h3 key={block.id} className="text-xl font-semibold mt-4 mb-3">{renderText(block.heading_3?.rich_text || [])}</h3>;
+  
       case 'bulleted_list_item':
-        return <li key={block.id}>{block.bulleted_list_item.text[0]?.plain_text}</li>;
+        return <li key={block.id} className="mb-2">{renderText(block.bulleted_list_item?.rich_text || [])}</li>;
+  
       case 'image':
         return (
-          <div key={block.id} className="relative aspect-video overflow-hidden rounded-lg">
+          <div key={block.id} className="relative aspect-video overflow-hidden rounded-lg my-6">
             <Image
               src={block.image.file.url}
-              alt={block.image.caption[0]?.plain_text || 'Image'}
+              alt={block.image.caption?.[0]?.plain_text || 'Image'}
               fill
               className="object-cover"
               priority
             />
           </div>
         );
-      // Add more block types as needed
+  
       default:
         return null;
     }
   };
+  
+    
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -72,16 +87,7 @@ export function BlogPost({ post }: BlogPostProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Avatar>
-              <AvatarImage src={post.author?.avatar || '/placeholder.svg'} alt={post.author?.name} />
-              <AvatarFallback>{post.author?.name.charAt(0)}</AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="font-medium">{post.author?.name}</p>
-              <p className="text-sm text-muted-foreground">Senior Developer</p>
-            </div>
-          </div>
+          
         </header>
 
         {/* Featured Image */}
@@ -99,7 +105,7 @@ export function BlogPost({ post }: BlogPostProps) {
 
         {/* Content */}
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          {post.content.map((block) => renderBlock(block))}
+          {post.content.slice(1).map((block) => renderBlock(block))}
         </div>
       </article>
     </div>
