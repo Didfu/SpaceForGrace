@@ -1,19 +1,20 @@
-import type React from "react"
-import "@/app/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import localFont from "next/font/local"
+import type React from "react";
+import "@/app/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import localFont from "next/font/local";
 
 // Correct font import from public folder
 const balaram = localFont({
   src: "../public/fonts/BALARAM.ttf", // Corrected path
   display: "swap",
-})
+});
 
 export const metadata = {
   title: "Space For Grace",
   description: "Some thoughts combining mundane reality with scientific spirituality",
   generator: "Dhruv Mahyavanshi",
-}
+  icon: "/images/icon.png",  // Add the path to your icon here
+};
 
 export default function RootLayout({
   children,
@@ -22,11 +23,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href={metadata.icon} />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="generator" content={metadata.generator} />
+      </head>
       <body className={balaram.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
