@@ -6,9 +6,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Next.js Blog",
-    description: "A modern blog built with Next.js and Tailwind CSS",
-        generator: 'v0.dev'
+  title: "Space For Grace",
+    description: "Some thoughts combining mundane reality with scientific spirituality",
+        generator: 'Dhruv Mahyavanshi'
         }
 
         export default function RootLayout({

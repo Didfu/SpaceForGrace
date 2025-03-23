@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import type { BlogPost } from "@/lib/blog"
@@ -17,7 +16,7 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
       <Link href={`/blog/${post.slug}`} className="relative block">
         <div className={`relative ${featured ? "aspect-[16/9]" : "aspect-[3/2]"} overflow-hidden`}>
           <Image
-            src={post.coverImage || "/placeholder.svg"}
+            src={post.coverImage}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-300 hover:scale-105"
@@ -40,13 +39,6 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
         <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <Avatar className="h-8 w-8">
-            <AvatarImage src={post.author.avatar} alt={post.author.name} />
-            <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-          </Avatar>
-          <span className="text-sm font-medium">{post.author.name}</span>
-        </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <CalendarIcon className="h-3 w-3" />
           <time dateTime={post.date}>
