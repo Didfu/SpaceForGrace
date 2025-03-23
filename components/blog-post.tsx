@@ -76,11 +76,11 @@ export function BlogPost({ post }: BlogPostProps) {
             ))}
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
             {post.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-muted-foreground flex-wrap">
+          <div className="flex items-center gap-4 text-black flex-wrap">
             <div className="flex items-center gap-2">
               <CalendarIcon className="h-4 w-4" />
               <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>

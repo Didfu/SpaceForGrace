@@ -7,10 +7,10 @@ export default async function HomePage() {
   const regularPosts = allPosts.slice(1);
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 font-balaram">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight mb-4">Space For Grace</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <h1 className="text-4xl font-extrabold tracking-tight mb-4">Space For Grace</h1>
+        <p className="text-xl text-black max-w-2xl mx-auto">
           Some thoughts combining mundane reality with scientific spirituality
         </p>
       </header>
