@@ -1,22 +1,22 @@
-import Link from "next/link"
-import { ChevronRight } from "lucide-react"
-import { BlogCard } from "@/components/blog-card"
-import type { BlogPost } from "@/lib/blog"
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { BlogCard } from "@/components/blog-card";
+import type { BlogPost } from "@/lib/notion";
 
 interface RelatedPostsProps {
-  posts: BlogPost[]
+  posts?: BlogPost[];
 }
 
-export function RelatedPosts({ posts }: RelatedPostsProps) {
-  if (posts.length === 0) return null
+export function RelatedPosts({ posts = [] }: RelatedPostsProps) {
+  if (!posts.length) return null;
 
   return (
     <section className="py-12 border-t">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold tracking-tight">More Articles</h2>
-          <Link href="/" className="flex items-center text-sm font-medium text-primary hover:underline">
-            View all articles
+          <h2 className="text-2xl font-bold tracking-tight">Some more thoughts</h2>
+          <Link href="/" className="flex items-center text-sm font-medium text-black hover:underline">
+            View all posts
             <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
@@ -27,5 +27,5 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }

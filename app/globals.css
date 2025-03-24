@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Balaram';
-    src: url('/fonts/Balaram.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'Balaram';
+  src: url('/fonts/Balaram.woff2') format('woff2'), 
+       url('/fonts/Balaram.ttf') format('truetype'); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while font loads */
+}
   
   body {
     font-family: 'Balaram', sans-serif;

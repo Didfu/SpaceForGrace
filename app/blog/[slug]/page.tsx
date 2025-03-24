@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug } from '@/lib/notion';
+import { getBlogPostBySlug, getRelatedBlogPosts } from '@/lib/notion';
 import { BlogPost } from '@/components/blog-post';
+import { RelatedPosts } from '@/components/related-posts';
 
 interface BlogPostPageProps {
   params: {
@@ -15,5 +16,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  return <BlogPost post={post} />;
+  const relatedPosts = await getRelatedBlogPosts(post.id);
+
+  return (
+    <div>
+      <BlogPost post={post} />
+      <RelatedPosts posts={relatedPosts} />
+    </div>
+  );
 }
