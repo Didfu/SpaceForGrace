@@ -10,9 +10,16 @@
   font-style: normal;
   font-display: swap; /* Ensures text is visible while font loads */
 }
+@font-face {
+  font-family: 'ScaHelvetica';
+  src: url('/fonts/ScaHelvetica.woff2') format('woff2'); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while font loads */
+}
   
   body {
-    font-family: 'Balaram', sans-serif;
+    font-family: 'Balaram','ScaHelvetica', sans-serif;
     letter-spacing: 0.4px;
     line-height: 1.8; /* Increase line height */
     background-color: rgb(215, 211, 200) !important; 
