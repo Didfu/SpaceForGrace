@@ -8,7 +8,9 @@
 
 ---
 
-![Hits](https://hits.sh/spaceforgrace.vercel.app.svg?style=flat-square)
+🔗 https://spaceforgrace.vercel.app
+
+![Page Views](https://hits.sh/spaceforgrace.vercel.app.svg?style=flat-square)
 
 ## ✨ Features
 - 📖 **Notion-Based Blogging**: Fetch and render blogs directly from Notion pages.
