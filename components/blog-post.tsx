@@ -16,33 +16,33 @@ interface BlogPostProps {
 
 export function BlogPost({ post }: BlogPostProps) {
   const renderBlock = (block) => {
-    if (!block) return null; // Ensure block exists before rendering
-  
+    if (!block) return null;
+
     const renderText = (richTextArray) =>
       richTextArray.map((textObj, index) => {
         let textElement = textObj.plain_text;
-  
+
         if (textObj.annotations.bold) textElement = <strong key={index}>{textElement}</strong>;
         if (textObj.annotations.italic) textElement = <em key={index}>{textElement}</em>;
         if (textObj.annotations.underline) textElement = <u key={index}>{textElement}</u>;
         if (textObj.annotations.strikethrough) textElement = <s key={index}>{textElement}</s>;
-  
+
         return <span key={index}>{textElement} </span>;
       });
-  
+
     switch (block.type) {
       case 'paragraph':
         return <p key={block.id} className="mb-4">{renderText(block.paragraph?.rich_text || [])}</p>;
-  
+
       case 'heading_2':
         return <h2 key={block.id} className="text-2xl font-bold mt-6 mb-4">{renderText(block.heading_2?.rich_text || [])}</h2>;
-  
+
       case 'heading_3':
         return <h3 key={block.id} className="text-xl font-semibold mt-4 mb-3">{renderText(block.heading_3?.rich_text || [])}</h3>;
-  
+
       case 'bulleted_list_item':
         return <li key={block.id} className="mb-2">{renderText(block.bulleted_list_item?.rich_text || [])}</li>;
-  
+
       case 'image':
         return (
           <div key={block.id} className="relative aspect-video overflow-hidden rounded-lg my-6">
@@ -55,13 +55,25 @@ export function BlogPost({ post }: BlogPostProps) {
             />
           </div>
         );
-  
+
       default:
         return null;
     }
   };
-  
-    
+
+  // Generate an excerpt if none is provided
+  const generatedExcerpt = post.content
+    .slice(0, 2) // Take first two paragraphs
+    .map((block) => {
+      if (block.type === 'paragraph') {
+        return block.paragraph?.rich_text?.map((textObj) => textObj.plain_text).join(' ');
+      }
+      return '';
+    })
+    .join(' ')
+    .substring(0, 150) + '...';
+
+  const description = post.excerpt || generatedExcerpt;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -86,8 +98,6 @@ export function BlogPost({ post }: BlogPostProps) {
               <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
             </div>
           </div>
-
-          
         </header>
 
         {/* Featured Image */}
