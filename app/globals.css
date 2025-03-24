@@ -3,28 +3,56 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Balaram';
-  src: url('/fonts/BALARAM.woff2') format('woff2'), 
-       url('/fonts/BALARAM.ttf') format('truetype'); /* Fallback */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Ensures text is visible while font loads */
+    font-family: 'Balaram';
+      src: url('/fonts/BALARAM.woff2') format('woff2'), 
+             url('/fonts/BALARAM.ttf') format('truetype'); /* Fallback */
+               font-weight: normal;
+                 font-style: normal;
+                   font-display: swap; /* Ensures text is visible while font loads */
+                   }
+                   @font-face {
+                     font-family: 'ScaHelvetica';
+                       src: url('/fonts/ScaHelvetica.woff2') format('woff2'); /* Fallback */
+                         font-weight: normal;
+                           font-style: normal;
+                             font-display: swap; /* Ensures text is visible while font loads */
+                             }
+                             @font-face {
+                                 font-family: 'Gentium Plus';
+                                     src: url('/fonts/GentiumPlus-Regular.woff2') format('woff2');
+                                         font-weight: normal;
+                                             font-style: normal;
+                                             }
+
+                                             @font-face {
+                                                 font-family: 'Gentium Plus';
+                                                     src: url('/fonts/GentiumPlus-Italic.woff2') format('woff2');
+                                                         font-weight: normal;
+                                                             font-style: italic;
+                                                             }
+
+                                                             @font-face {
+                                                                 font-family: 'Gentium Plus';
+                                                                     src: url('/fonts/GentiumPlus-Bold.woff2') format('woff2');
+                                                                         font-weight: bold;
+                                                                             font-style: normal;
+                                                                             }
+
+                                                                             @font-face {
+                                                                                 font-family: 'Gentium Plus';
+                                                                                     src: url('/fonts/GentiumPlus-BoldItalic.woff2') format('woff2');
+                                                                                         font-weight: bold;
+                                                                                             font-style: italic;
+                                                                                             }
+                                                                                               
+                                                                                                 body {
+                                                                                                     font-family: 'Balaram', 'Gentium Plus','ScaHelvetica', sans-serif;
+                                                                                                         letter-spacing: 0.4px;
+                                                                                                             line-height: 1.8; /* Increase line height */
+                                                                                                                 background-color: rgb(215, 211, 200) !important; 
+                                                                                                                     color: black !important;
+                                                                                                                       }
 }
-@font-face {
-  font-family: 'ScaHelvetica';
-  src: url('/fonts/ScaHelvetica.woff2') format('woff2'); /* Fallback */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Ensures text is visible while font loads */
-}
-  
-  body {
-    font-family: 'Balaram','ScaHelvetica', sans-serif;
-    letter-spacing: 0.4px;
-    line-height: 1.8; /* Increase line height */
-    background-color: rgb(215, 211, 200) !important; 
-    color: black !important;
-  }
   
 
 @layer utilities {
