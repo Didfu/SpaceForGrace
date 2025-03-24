@@ -4,8 +4,8 @@
 
 @font-face {
   font-family: 'Balaram';
-  src: url('/fonts/Balaram.woff2') format('woff2'), 
-       url('/fonts/Balaram.ttf') format('truetype'); /* Fallback */
+  src: url('/fonts/balaram.woff2') format('woff2'), 
+       url('/fonts/balaram.ttf') format('truetype'); /* Fallback */
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Ensures text is visible while font loads */
