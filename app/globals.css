@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'balaram';
-  src: url('/fonts/balaram.woff2') format('woff2'), 
-       url('/fonts/balaram.ttf') format('truetype'); /* Fallback */
+  font-family: 'Balaram';
+  src: url('/fonts/BALARAM.woff2') format('woff2'), 
+       url('/fonts/BALARAM.ttf') format('truetype'); /* Fallback */
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* Ensures text is visible while font loads */
 }
   
   body {
-    font-family: 'balaram', sans-serif;
+    font-family: 'Balaram', sans-serif;
     letter-spacing: 0.4px;
     line-height: 1.8; /* Increase line height */
     background-color: rgb(215, 211, 200) !important; 
