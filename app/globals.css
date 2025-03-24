@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Balaram';
+  font-family: 'balaram';
   src: url('/fonts/balaram.woff2') format('woff2'), 
        url('/fonts/balaram.ttf') format('truetype'); /* Fallback */
   font-weight: normal;
@@ -12,7 +12,7 @@
 }
   
   body {
-    font-family: 'Balaram', sans-serif;
+    font-family: 'balaram', sans-serif;
     letter-spacing: 0.4px;
     line-height: 1.8; /* Increase line height */
     background-color: rgb(215, 211, 200) !important; 
