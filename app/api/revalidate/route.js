@@ -1,16 +1,11 @@
-import { clearNotionCache } from "@/lib/notion";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
     try {
-        // 🧹 Clear Notion cache to ensure fresh data
-        clearNotionCache();  
-
-        // 🔄 Revalidate Next.js cache for `/blog`
-        revalidatePath("/blog"); 
-
-        // 🚀 Trigger a hard refresh of the page
+        revalidatePath("/blog"); // ✅ Clears the cache for `/blog`
+        
+        // Optionally force-fetch the page to trigger a refresh
         await fetch("https://spaceforgrace.vercel.app/blog", {
             method: "GET",
             headers: { "Cache-Control": "no-cache" },
