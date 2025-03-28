@@ -1,7 +1,9 @@
 import { getAllBlogPosts } from "@/lib/notion";
 import { BlogCard } from "@/components/blog-card";
+import { unstable_noStore as noStore } from "next/cache"; // 🔥 Disable caching
 
 export default async function HomePage() {
+  noStore(); // 🚀 Prevents Vercel from caching blog posts
   const allPosts = await getAllBlogPosts(process.env.NOTION_PAGE_ID);
   const featuredPost = allPosts[0];
   const regularPosts = allPosts.slice(1);
