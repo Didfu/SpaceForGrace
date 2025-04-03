@@ -1,4 +1,4 @@
-const CACHE_NAME = "spaceforgrace-cache-v1";
+const CACHE_NAME = "spaceforgrace-cache-v2";
 const urlsToCache = [
   "/",
   "/icons/icon-192x192.png",
