@@ -41,12 +41,15 @@ export default function PWAInstallPrompt() {
         position: "fixed",
         bottom: "20px",
         right: "20px",
-        padding: "10px 20px",
+        padding: "15px 25px",
+        fontSize: "16px",
         backgroundColor: "#007bff",
         color: "#fff",
         border: "none",
-        borderRadius: "5px",
+        borderRadius: "8px",
         cursor: "pointer",
+        zIndex: 1000, // Ensure the button is above other elements
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       }}
       onClick={handleInstallClick}
     >
