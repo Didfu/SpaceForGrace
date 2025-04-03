@@ -52,32 +52,28 @@
 }
 @font-face {
   font-family: 'Athelas';
-  src: url('/fonts/Athelas-Regular.woff2') format('woff2'),
-       url('/fonts/Athelas-Regular.ttf') format('truetype'); /* Fallback */
-  font-weight: normal;
+  src: url('/fonts/Athelas-Regular.woff2') format('woff2');
+  font-weight : normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Athelas';
-  src: url('/fonts/Athelas-Italic.woff2') format('woff2'),
-       url('/fonts/Athelas-Italic.ttf') format('truetype'); /* Fallback */
+  src: url('/fonts/Athelas-Italic.woff2') format('woff2'); /* Fallback */
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Athelas';
-  src: url('/fonts/Athelas-Bold.woff2') format('woff2'),
-       url('/fonts/Athelas-Bold.ttf') format('truetype'); /* Fallback */
+  src: url('/fonts/Athelas-Bold.woff2') format('woff2'); /* Fallback */
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Athelas';
-  src: url('/fonts/Athelas-BoldItalic.woff2') format('woff2'),
-       url('/fonts/Athelas-BoldItalic.ttf') format('truetype'); /* Fallback */
+  src: url('/fonts/Athelas-BoldItalic.woff2') format('woff2'); /* Fallback */
   font-weight: bold;
   font-style: italic;
 }
