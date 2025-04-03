@@ -14,7 +14,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ title, url, image, typ
       navigator
         .share({
           title,
-          text: `${title}`,
+        
           url,
         })
         .catch((error) => console.error("Error sharing:", error));
