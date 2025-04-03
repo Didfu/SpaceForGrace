@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt"; // ✅ Import the PWAInstallPrompt component
 
 export const metadata = {
   title: "Space For Grace",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ServiceWorkerRegister /> {/* Register the service worker */}
+          <PWAInstallPrompt /> {/* Add the PWA install prompt */}
           <main>{children}</main>
         </ThemeProvider>
       </body>
