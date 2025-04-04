@@ -24,13 +24,14 @@ export default function RootLayout({
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta name="generator" content={metadata.generator} />
-
+        
+        {/* Google Analytics */}
         <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-66J9ZLY3E9"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-66J9ZLY3E9"
+/>
+<Script id="google-analytics" strategy="afterInteractive">
+{`
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -110,7 +111,7 @@ export default function RootLayout({
     }
   })();
 `}
-        </Script>
+</Script>
 
       </head>
       <body>
