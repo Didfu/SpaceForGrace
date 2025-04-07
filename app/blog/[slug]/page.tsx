@@ -5,6 +5,8 @@ import { RelatedPosts } from "@/components/related-posts";
 import { BackButton } from "@/components/ui/BackButton";
 import { ShareButton } from "@/components/ui/ShareButton"; // ✅ Import ShareButton
 import { Metadata } from "next";
+import { AboutButton } from "@/components/aboutbutton";
+
 
 interface BlogPostPageProps {
   params: {
@@ -68,6 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Related Posts */}
       <RelatedPosts posts={relatedPosts} />
+      <AboutButton />
     </div>
   );
 }
