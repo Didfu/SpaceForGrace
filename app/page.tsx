@@ -1,5 +1,7 @@
 import { getAllBlogPosts } from "@/lib/notion";
 import { BlogCard } from "@/components/blog-card";
+import { AboutButton } from "@/components/aboutbutton";
+
 import { unstable_noStore as noStore } from "next/cache"; // 🔥 Disable caching
 
 export default async function HomePage() {
@@ -29,6 +31,7 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+        <AboutButton />
     </div>
   );
 }
